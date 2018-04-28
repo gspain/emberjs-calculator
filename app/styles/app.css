@@ -1,0 +1,279 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  zoom: 1; }
+
+*:before,
+*:after {
+  content: " ";
+  clear: both; }
+
+div:after {
+  display: table; }
+
+img,
+input,
+a,
+input,
+textarea,
+button {
+  outline: 0; }
+
+button {
+  background: none;
+  border: 0; }
+
+@font-face {
+  font-family: "fa-solid";
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/font-awesome/fa-solid-900.eot");
+  src: url("fonts/font-awesome/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("fonts/font-awesome/fa-solid-900.woff2") format("woff2"), url("fonts/font-awesome/fa-solid-900.woff") format("woff"), url("fonts/font-awesome/fa-solid-900.ttf") format("truetype"), url("fonts/font-awesome/fa-solid-900.svg#fontawesome") format("svg"); }
+@font-face {
+  font-family: "fa-brands";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/font-awesome/fa-brands-400.eot");
+  src: url("fonts/font-awesome/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("fonts/font-awesome/fa-brands-400.woff2") format("woff2"), url("fonts/font-awesome/fa-brands-400.woff") format("woff"), url("fonts/font-awesome/fa-brands-400.ttf") format("truetype"), url("fonts/font-awesome/fa-brands-400.svg#fontawesome") format("svg"); }
+[class*="icon-"]:before,
+[class*="icon-after-"]:after {
+  font-family: "fa-solid";
+  display: inline-block;
+  font-size: inherit; }
+
+[class*="icon-brand-"]:before,
+[class*="icon-brand-after-"]:after {
+  font-family: "fa-brands";
+  display: inline-block;
+  font-size: inherit; }
+
+.icon-adjust:before {
+  content: "\f042"; }
+
+body, html {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background: #f1f1f1; }
+
+button {
+  outline: 0;
+  border: 0;
+  padding: 1em;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  background: #1d8ac9;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity .3s ease-in-out; }
+  button:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)";
+    filter: alpha(opacity=0.7);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7; }
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #1d8ac9;
+  transition: color .3s ease-in-out; }
+  a:hover {
+    color: #0b5f90; }
+    a:hover:before {
+      color: #8369cc; }
+
+.column {
+  float: left;
+  width: 25%; }
+
+#header {
+  background: white;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding: .5em;
+  font-size: 25px;
+  box-shadow: 0px 1px 5px #808080; }
+  #header .column {
+    float: left;
+    width: 50%; }
+  #header .links {
+    text-align: right; }
+
+#main,
+#footer {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto; }
+
+#main {
+  padding: 5em 1em 1em 1em; }
+
+#footer {
+  padding: 1em; }
+
+.calculator {
+  margin: 0 auto;
+  width: 20em;
+  font-size: 28px; }
+  .calculator .btn {
+    font-size: 28px;
+    min-width: 4.2em;
+    min-height: 4.2em;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    margin: .3em; }
+  .calculator .btn.double {
+    min-width: 9em;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    text-align: left;
+    padding: 1em 1.7em; }
+
+.container {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 0 0 .5em 0; }
+  .theme-default .container {
+    background: black; }
+  .theme-light .container {
+    background: #dddddd; }
+  .theme-dark .container {
+    background: #6d6d6d; }
+  .theme-colors .container {
+    background: #f0f0f0; }
+
+.row {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+.total {
+  text-align: right;
+  display: block;
+  margin: .3em;
+  padding: .3em 0;
+  font-size: 77px;
+  line-height: 1em; }
+  .theme-default .total {
+    color: white; }
+  .theme-light .total {
+    color: gray; }
+  .theme-dark .total {
+    color: #b7b7b7; }
+  .theme-colors .total {
+    color: #616abd; }
+
+.theme-default .function {
+  color: black;
+  background: white; }
+.theme-light .function {
+  color: #dddddd;
+  background: gray; }
+.theme-dark .function {
+  color: #6d6d6d;
+  background: #b7b7b7; }
+.theme-colors .function {
+  color: #f0f0f0;
+  background: #616abd; }
+
+.theme-default .number {
+  color: white;
+  background: gray; }
+.theme-light .number {
+  color: gray;
+  background: white; }
+.theme-dark .number {
+  color: #b7b7b7;
+  background: black; }
+.theme-colors .number {
+  color: #616abd;
+  background: #edb1f0; }
+
+.theme-default .operator {
+  color: white;
+  background: orange; }
+.theme-light .operator {
+  color: gray;
+  background: #8fd6ff; }
+.theme-dark .operator {
+  color: #b7b7b7;
+  background: #00527b; }
+.theme-colors .operator {
+  color: #616abd;
+  background: #33b6b2; }
+
+.current-theme {
+  text-transform: capitalize; }
+
+.theme {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 1em;
+  cursor: pointer; }
+  .theme .title {
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    padding: 3em;
+    transition: opacity .3s ease-in-out; }
+  .theme.default {
+    background-image: url("img/theme-default.jpg"); }
+    .theme.default .title {
+      background: rgba(255, 165, 0, 0.8); }
+  .theme.light {
+    background-image: url("img/theme-light.jpg"); }
+    .theme.light .title {
+      background: rgba(143, 214, 255, 0.8); }
+  .theme.dark {
+    background-image: url("img/theme-dark.jpg"); }
+    .theme.dark .title {
+      background: rgba(0, 82, 123, 0.8); }
+  .theme.colors {
+    background-image: url("img/theme-colors.jpg"); }
+    .theme.colors .title {
+      background: rgba(51, 182, 178, 0.8); }
+
+.theme-wrapper {
+  margin: 0 0 2em 0; }
+
+.theme-wrapper.active .title,
+.theme-wrapper:hover .title {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0; }
+.theme-wrapper.active button,
+.theme-wrapper:hover button {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)";
+  filter: alpha(opacity=0.7);
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  opacity: 0.7; }
+
+@media only screen and (max-width: 768px) {
+  #header {
+    font-size: 17px; }
+
+  .calculator .btn,
+  .calculator {
+    font-size: 14px; }
+
+  .total {
+    font-size: 38px; }
+
+  .column {
+    width: 100%; } }
+
+/*# sourceMappingURL=app.css.map */

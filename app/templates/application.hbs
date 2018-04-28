@@ -1,5 +1,23 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div id="header">
+  <div class="menu">
+    <div class="column">
+      {{#link-to "/" class="menu-home"}}
+        EmberJS Calculator v1.0
+      {{/link-to}}
+    </div>
+    <div class="column links">
+      {{#link-to "themes" class="menu-themes icon-adjust"}}
+        Themes
+      {{/link-to}}
+    </div>
+  </div>
+</div>
+<div id="main">
+  {{outlet}}
+</div>
+<div id="footer">
+  <p>
+    <strong>EmberJS Calculator with Themes</strong><br/>
+    Created by <a href="https://github.com/gspain" target="_blank">Gabriella Spain</a>
+  </p>
+</div>

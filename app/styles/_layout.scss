@@ -1,0 +1,208 @@
+body, html {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background: rgba(241, 241, 241, 1);
+}
+
+button {
+  outline: 0;
+  border: 0;
+  padding: 1em;
+  @include border-radius(100px);
+  background: rgba(29, 138, 201, 1); //#1D8AC9;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    @include opacity(.7);
+  }
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: rgba(29, 138, 201, 1); //#1D8AC9;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: rgba(11, 95, 144, 1);
+
+    &:before {
+      color: rgba(131, 105, 204, 1);
+    }
+  }
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+#header {
+  background: rgba(255, 255, 255, 1);
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding: .5em;
+  font-size: 25px;
+  box-shadow: 0px 1px 5px #808080;
+
+  .column {
+    float: left;
+    width: 50%;
+  }
+
+  .links {
+    text-align: right;
+  }
+}
+
+#main,
+#footer {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#main {
+  padding: 5em 1em 1em 1em;
+}
+
+#footer {
+  padding: 1em;
+}
+
+.calculator {
+  margin: 0 auto;
+  width: 20em;
+  font-size: 28px;
+
+  .btn {
+    font-size: 28px;
+    min-width: 4.2em;
+    min-height: 4.2em;
+    @include border-radius(100%);
+    margin: .3em;
+  }
+
+  .btn.double {
+    min-width: 9em;
+    @include border-radius(100px);
+    text-align: left;
+    padding: 1em 1.7em
+  }
+}
+
+.container {
+  @include border-radius(10px);
+  padding: 0 0 .5em 0;
+  @include themify($themes) {
+    background: themed('secondary');
+  }
+}
+
+.row {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.total {
+  @include themify($themes) {
+    color: themed('primary');
+  }
+  text-align: right;
+  display: block;
+  margin: .3em;
+  padding: .3em 0;
+  font-size: 77px;
+  line-height: 1em;
+}
+
+.function {
+  @include themify($themes) {
+    color: themed('secondary');  
+    background: themed('primary');  
+  }
+}
+
+.number {
+  @include themify($themes) {
+    color: themed('primary');  
+    background: themed('tertiary');  
+  }
+}
+
+.operator {
+  @include themify($themes) {
+    color: themed('primary');  
+    background: themed('highlight');  
+  }
+}
+
+.current-theme {
+  text-transform: capitalize;
+}
+
+.theme {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 1em;
+  cursor: pointer;
+
+  .title {
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    padding: 3em;
+    transition: opacity .3s ease-in-out;
+  }
+
+  &.default {
+    background-image: url('img/theme-default.jpg');
+
+    .title {
+      background: rgba(255, 165, 0, .8);
+    }
+  }
+  &.light {
+    background-image: url('img/theme-light.jpg');
+
+    .title {
+      background: rgba(143, 214, 255, .8);
+    }
+  }
+  &.dark {
+    background-image: url('img/theme-dark.jpg');
+
+    .title {
+      background: rgba(0, 82, 123, .8);
+    }
+  }
+  &.colors {
+    background-image: url('img/theme-colors.jpg');
+
+    .title {
+      background: rgba(51, 182, 178, .8);
+    }
+  }
+}
+
+.theme-wrapper {
+  margin: 0 0 2em 0;
+}
+
+.theme-wrapper.active,
+.theme-wrapper:hover {
+  .title {
+    @include opacity(0);
+  }
+
+   button {
+    @include opacity(.7);
+  }
+}

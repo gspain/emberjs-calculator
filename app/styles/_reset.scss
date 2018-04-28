@@ -1,0 +1,30 @@
+*,
+*:before,
+*:after {
+  @include border-box;
+  zoom: 1;
+}
+
+*:before,
+*:after {
+  content: " ";
+  clear: both;
+}
+
+div:after {
+  display: table;
+}
+
+img,
+input,
+a,
+input,
+textarea,
+button {
+  outline: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+}

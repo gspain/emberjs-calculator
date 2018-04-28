@@ -1,0 +1,12 @@
+<div class="theme-wrapper {{if isSelected 'active'}}" {{action 'setTheme' theme}}>
+  <div class="theme {{theme.class-name}}">
+    <span class="title">{{theme.name}}</span>
+  </div>
+  {{#if isSelected}}
+    <span class="current-theme">Current Theme</span>
+  {{else}}
+    <button type="button" class="select-theme">
+      Select Theme
+    </button>
+  {{/if}}
+</div>
