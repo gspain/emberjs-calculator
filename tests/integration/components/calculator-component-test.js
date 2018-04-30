@@ -1,27 +1,19 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import EmberObject from '@ember/object';
-import { render, hooks } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 
-moduleForComponent('calculator-component', 'Integration | Component | calculator component', {
-  integration: true
-});
+module('Integration | Component | calculator component', function(hooks) {
+  setupRenderingTest(hooks);
 
-hooks.beforeEach(function () {
-  this.theme = EmberObject.create({
-    "class-name": 'test-class-name',
-    name: 'test-name'
+  test('should display calculator', async function(assert) {
+    await render(hbs`{{calculator-component class="content-wrapper"}}`);
+    assert.ok(this.element.querySelector('.calculator'), 'calculator element exists');
   });
-});
 
-test('should display calculator', async function(assert) {
-  await render(hbs`{{calculator-component class="content-wrapper"}}`);
-  assert.equal(this.$('.calculator'), 'calculator element exists');
-});
-
-test('should have theme', async function(assert) {
-  await render(hbs`{{calculator-component class="content-wrapper"}}`);
-  assert.equal(this.$('.current-theme').text(), 'test-name', 'test-name');
-  assert.ok(this.element.querySelector('.theme-test-class-name'), 'theme class exists');
-  //assert.ok(this.element.querySelector('.current-theme'), 'rendered text after click');
+  test('should have theme', async function(assert) {
+    await render(hbs`{{calculator-component class="content-wrapper"}}`);
+    assert.equal(this.$('.current-theme').text(), 'Current Theme: default');
+    assert.ok(this.element.querySelector('.theme-default'), 'theme class exists');
+  });
 });

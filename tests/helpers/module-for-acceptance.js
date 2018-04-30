@@ -3,8 +3,6 @@ import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
 import { Promise } from 'rsvp';
 
-//const { RSVP: { Promise } } = Ember;
-
 export default function(name, options = {}) {
   module(name, {
     beforeEach() {

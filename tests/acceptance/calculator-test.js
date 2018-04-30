@@ -1,20 +1,24 @@
-import { test } from 'qunit';
-import moduleForAcceptance from 'emberjs-calculator/tests/helpers/module-for-acceptance';
-import {
-  click,
-  currentURL,
-  visit
-} from '@ember/test-helpers';
+import { module, test } from 'qunit';
+import { visit, currentURL, click } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-moduleForAcceptance('Acceptance | calculator');
+module('Acceptance | calculator', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('should link to themes', async function (assert) {
-  await visit('/themes');
-  await click(".menu-themes");
-  assert.equal(currentURL(), '/themes', 'should navigate to themes');
+  test('visitig /', async function (assert) {
+    await visit('/');
+    assert.equal(currentURL(), '/calculator', 'should redirect automatically');
+  });
+  
+  test('visiting /calculator', async function(assert) {
+    await visit('/calculator');
+    assert.equal(currentURL(), '/calculator', 'should show the calculator page');
+  });
+
+  test('link to themes', async function (assert) {
+    await visit('/calculator');
+    await click(".menu-themes");
+    assert.equal(currentURL(), '/themes', 'should navigate to themes');
+  });
 });
 
-test('should show calculator as the index', async function (assert) {
-  await visit('/');
-  assert.equal(currentURL(), '/calculator', 'should redirect automatically');
-});

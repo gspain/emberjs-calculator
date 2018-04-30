@@ -82,7 +82,7 @@ export default Component.extend({
       let log = this.get('log');
       let lastLogged = log[log.length-1];
 
-      if ((log !== '' || display !== '0') && !isNaN(display)) {
+      if (!isNaN(display)) {
         log += " " + display + " " + value;
        }
 
@@ -100,7 +100,7 @@ export default Component.extend({
     percent () {
       let display = this.get('display');
 
-      if (display !== '0') {
+      if (display !== '0' && !isNaN(display)) {
         display = display + ' / 100';
 
         this.set('display', display);

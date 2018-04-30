@@ -1,12 +1,16 @@
-<div class="theme-wrapper {{if isSelected 'active'}}" {{action 'setTheme' theme}}>
-  <div class="theme {{theme.class-name}}">
-    <span class="title">{{theme.name}}</span>
+{{#each themes as |theme|}}
+  <div class="theme-wrapper {{if theme.isSelected 'active'}}" {{action 'setTheme' theme}}>
+    <div class="theme {{theme.class-name}}">
+      <span class="title">{{theme.name}}</span>
+    </div>
+    {{#if theme.isSelected}}
+      <span class="current-theme">Current Theme</span>
+    {{else}}
+      <button type="button" class="select-theme">
+        Select Theme
+      </button>
+    {{/if}}
   </div>
-  {{#if isSelected}}
-    <span class="current-theme">Current Theme</span>
-  {{else}}
-    <button type="button" class="select-theme">
-      Select Theme
-    </button>
-  {{/if}}
-</div>
+{{else}}
+  <p>There are no available themes</p>
+{{/each}}

@@ -8,7 +8,8 @@ export default Route.extend({
         type: 'theme',
         attributes: {
           name: 'Default',
-          "class-name": 'default'
+          "class-name": 'default',
+          isSelected: true
         }
       }]
     });

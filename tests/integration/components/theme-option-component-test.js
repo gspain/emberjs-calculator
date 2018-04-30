@@ -1,28 +1,39 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import EmberObject from '@ember/object';
-import { render, click, hooks } from '@ember/test-helpers';
 
-moduleForComponent('theme-option-component', 'Integration | Component | theme option component', {
-  integration: true
-});
+module('Integration | Component | theme-option-component', function(hooks) {
+  setupRenderingTest(hooks);
 
-hooks.beforeEach(function () {
-  this.theme = EmberObject.create({
-    "class-name": 'test-class-name',
-    name: 'test-name'
+  test('should render no themes and display message', async function(assert) {
+    this.set('themes', []);
+
+    await render(hbs`{{theme-option-component themes=themes theme=theme isSelected=isSelected class="column"}}`);
+    assert.equal(this.$('.theme').length, 0);
+    assert.equal(this.$('p').text(), 'There are no available themes');
   });
-});
 
-test('should display theme details', async function(assert) {
-  await render(hbs`{{theme-option-component theme=theme}}`);
-  assert.equal(this.$('.theme .title').text(), 'test-name', 'test-name');
-  //assert.equal(this.$('.theme .description').text().trim(), 'test-description', 'test-description');
-});
+  test('should render all themes', async function(assert) {
+    this.set('themes', [
+      { name: 'Default', "class-name": 'default', isSelected: true },
+      { name: 'Light', "class-name": 'light', isSelected: false },
+      { name: 'Dark', "class-name": 'dark', isSelected: false },
+      { name: 'Colors', "class-name": 'colors', isSelected: false }
+    ]);
 
-test('should toggle isSelected on click', async function(assert) {
-  await render(hbs`{{theme-option-component theme=theme}}`);
-  assert.notOk(this.element.querySelector('.select-theme'), 'initially rendered button');
-  await click('.select-theme');
-  assert.ok(this.element.querySelector('.current-theme'), 'rendered text after click');
+    await render(hbs`{{theme-option-component themes=themes theme=theme isSelected=isSelected class="column"}}`);
+    assert.equal(this.$('.theme').length, 4);
+  });
+
+  test('should render default active theme', async function(assert) {
+    this.set('themes', [
+      { name: 'Default', "class-name": 'default', isSelected: true }
+    ]);
+
+    await render(hbs`{{theme-option-component themes=themes theme=theme isSelected=isSelected class="column"}}`);
+    assert.equal(this.$('.theme-wrapper.active').length, 1);
+    assert.equal(this.$('.theme-wrapper.active .theme.default .title').text(), 'Default');
+    assert.ok(this.$('.theme-wrapper.active .current-theme'), 'Current theme text exists');
+  });
 });

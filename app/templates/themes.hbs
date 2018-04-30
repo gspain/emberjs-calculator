@@ -1,19 +1,7 @@
 <h1>Themes</h1>
 
 <div class="content-wrapper">
-  <!-- <div class="column">
-    <div class="theme default">
-      <span class="title">Default</span>
-    </div>
-    <button type="button" class="select-theme" {{action 'setTheme' ''}}>
-      Select Theme
-    </button>
-  </div> -->
-  {{#each model as |theme|}}
-    {{theme-option-component themes=model theme=theme isSelected=theme.isSelected class="column"}}
-  {{else}}
-    <p>There are no available themes</p>
-  {{/each}}
+  {{theme-option-component themes=model theme=theme isSelected=isSelected class="column"}}
 </div>
 
 {{outlet}}

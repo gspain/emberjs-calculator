@@ -151,7 +151,7 @@ a {
   .theme-dark .container {
     background: #6d6d6d; }
   .theme-colors .container {
-    background: #f0f0f0; }
+    background: white; }
 
 .row {
   display: table;
@@ -184,7 +184,7 @@ a {
   color: #6d6d6d;
   background: #b7b7b7; }
 .theme-colors .function {
-  color: #f0f0f0;
+  color: white;
   background: #616abd; }
 
 .theme-default .number {
