@@ -1,5 +1,5 @@
 {{#each themes as |theme|}}
-  <div class="theme-wrapper {{if theme.isSelected 'active'}}" {{action 'setTheme' theme}}>
+  <div class="theme-wrapper column {{if theme.isSelected 'active'}}" {{action 'setTheme' theme}}>
     <div class="theme {{theme.class-name}}">
       <span class="title">{{theme.name}}</span>
     </div>
