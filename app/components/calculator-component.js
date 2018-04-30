@@ -99,19 +99,21 @@ export default Component.extend({
     },
     percent () {
       let display = this.get('display');
+      let log = this.get('log');
 
       if (display !== '0' && !isNaN(display)) {
-        display = display + ' / 100';
+        log = display + ' / 100';
 
-        this.set('display', display);
-        this.send('equals', display);
+        this.set('display', '');
+        this.set('log', log);
+        this.send('equals', log);
       }
     },
     equals () {
       let display = this.get('display');
-      var log = this.get('log');
+      let log = this.get('log');
 
-      if (display !== '0' || !isNaN(display)) {
+      if (!isNaN(display)) {
         if (log !== '') {
           log += " " + display;
         } else {
@@ -119,10 +121,9 @@ export default Component.extend({
         }
 
         let evaluate = Function('"use strict";return (' + log + ')')();
-        evaluate = Math.round(evaluate * 100) / 100;
 
         if (evaluate.toString().length > 12) {
-          let formattedAns = evaluate.toPrecision(11);
+          let formattedAns = evaluate.toPrecision(6);
           log = formattedAns.toString();
         } else {
           log = evaluate.toString();
