@@ -36,4 +36,25 @@ module('Integration | Component | theme-option-component', function(hooks) {
     assert.equal(this.element.querySelector('.theme-wrapper.active .theme.default .title').textContent, 'Default');
     assert.ok(this.element.querySelector('.theme-wrapper.active .current-theme'), 'Current theme text exists');
   });
+
+  test('should render changed theme on click', async function(assert) {
+    this.set('themes', [
+      { name: 'Default', "class-name": 'default', isSelected: true },
+      { name: 'Light', "class-name": 'light', isSelected: false }
+    ]);
+
+    this.owner.lookup('service:current-theme');
+    
+    await render(hbs`{{theme-option-component themes=themes theme=theme isSelected=isSelected class="column"}}`);
+    assert.equal(this.element.querySelectorAll('.theme-wrapper.active').length, 1);
+    assert.ok(this.element.querySelector('.theme-wrapper.active .theme.default'), 'Current theme is default');
+
+    this.set('currentTheme', 'light');
+
+    assert.equal(this.$('.theme-wrapper.active').length, 1);
+    assert.ok(this.$('.theme-wrapper .theme.default'), 'default no longer active');
+    assert.ok(this.$('.theme-wrapper .select-theme'), 'Select Theme text exists');
+    assert.ok(this.$('.theme-wrapper.active .theme.light'), 'light is current theme');
+    assert.ok(this.$('.theme-wrapper.active .current-theme'), 'current theme text exists');
+  });
 });

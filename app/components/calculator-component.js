@@ -8,33 +8,19 @@ export default Component.extend({
 
   actions: {
     entry (value) {
-      if (!isNaN(value)) {
-       this.send('number', value);
-      }
-
-      if (value === '+' || value === '-' || value === '/' || value === '*') {
-        this.send('operator', value);
-      }
-
-      if (value === '.') {
-        this.send('decimal', value);
-      }
-
-      if (value === '+-') {
-        this.send('negate');
-      }
-
-      if (value === '%') {
-        this.send('percent');
-      }
-
-      if (value === '=') {
-        this.send('equals');
-      }
-
-      if (value === 'clear') {
-        this.send('clear');
-      }
+      value === '+' || value === '-' || value === '/' || value === '*'
+        ? this.send('operator', value)
+      : value === '.'
+        ? this.send('decimal', value)
+      : value === '+-'
+        ? this.send('negate')
+      : value === '%'
+        ? this.send('percent')
+      : value === '='
+        ? this.send('equals')
+      : value === 'clear'
+        ? this.send('clear')
+        : this.send('number', value);
     },
     number (value) {
       let display = this.get('display');
@@ -114,11 +100,9 @@ export default Component.extend({
       let log = this.get('log');
 
       if (!isNaN(display)) {
-        if (log !== '') {
-          log += " " + display;
-        } else {
-          log = display;
-        }
+        log !== ''
+          ? log += " " + display
+          : log = display;
 
         let evaluate = Function('"use strict";return (' + log + ')')();
 

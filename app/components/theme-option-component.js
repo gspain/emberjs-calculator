@@ -12,7 +12,7 @@ export default Component.extend({
       });
       theme.set('isSelected', true);
       this.get('currentTheme').setTheme(theme['class-name']);
-      this.get('router').transitionTo('index');
+      this.get('router').transitionTo('/');
     }
   }
 });
