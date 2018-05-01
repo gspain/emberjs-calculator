@@ -3,13 +3,16 @@
     font-size: 17px;
   }
 
-  .calculator .btn,
   .calculator {
-    font-size: 14px;
+    width: 20em;
+    
+    .btn {
+      font-size: 14px;
+    }
   }
 
   .total {
-    font-size: 38px;
+    font-size: 37px;
   }
 
   .column {
