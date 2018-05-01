@@ -103,9 +103,11 @@ a {
   box-shadow: 0px 1px 5px #808080; }
   #header .column {
     float: left;
-    width: 50%; }
+    width: auto;
+    display: inline-block; }
   #header .links {
-    text-align: right; }
+    text-align: right;
+    float: right; }
 
 #main,
 #footer {

@@ -53,11 +53,13 @@ a {
 
   .column {
     float: left;
-    width: 50%;
+    width: auto;
+    display: inline-block;
   }
 
   .links {
     text-align: right;
+    float: right;
   }
 }
 
