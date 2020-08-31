@@ -1,0 +1,19 @@
+<div id="header">
+  <div class="menu">
+    <div class="column">
+      <LinkTo @route="index" class="menu-home">EmberJS Calculator v1.0</LinkTo>
+    </div>
+    <div class="column links">
+      <LinkTo @route="themes" class="menu-themes icon-adjust">Themes</LinkTo>
+    </div>
+  </div>
+</div>
+<div id="main">
+  {{outlet}}
+</div>
+<div id="footer">
+  <p>
+    <strong>EmberJS Calculator with Themes</strong><br/>
+    Created by <a href="https://github.com/gspain" target="_blank">Gabriella Spain</a>
+  </p>
+</div>
