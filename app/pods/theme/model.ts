@@ -3,7 +3,8 @@ import Model, { attr } from '@ember-data/model';
 export default class Theme extends Model {
   @attr('string') name!: string;
   @attr('string') className!: string;
-  @attr('boolean') isSelected!: boolean;
+  @attr('boolean', { defaultValue: false }) isSelected!: boolean;
+  @attr('string') type!: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

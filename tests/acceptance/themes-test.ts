@@ -18,6 +18,6 @@ module('Acceptance | themes', function(hooks) {
   test('should link to the calculator', async function (assert) {
     await visit('/themes');
     await click(".menu-home");
-    assert.equal(currentURL(), '/calculator');
+    assert.equal(currentURL(), '/');
   });
 });

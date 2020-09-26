@@ -5,17 +5,15 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class CurrentTheme extends Service {
-  @tracked theme: Theme | object = this.defaultTheme;
-  @tracked themeChanged = false;
-
-  get defaultTheme() {
-    return {
+  @tracked defaultTheme = {
       id: '0',
       name: 'Default',
       className: 'default',
       isSelected: true
-    };
-  }
+  } as Theme;
+
+  @tracked theme: Theme = this.defaultTheme;
+  @tracked themeChanged = false;
 
   @action
   setTheme(theme: Theme) {

@@ -8,6 +8,10 @@ export default class Themes extends Route {
   @service currentTheme!: CurrentTheme;
 
   model() {
+    return this.store.findAll('theme', {});
+  }
+
+  afterModel() {
     this.store.push({
       data: [{
         id: '0',
@@ -15,7 +19,5 @@ export default class Themes extends Route {
         attributes: this.currentTheme.defaultTheme
       }]
     });
-
-    return this.store.findAll('theme', {});
   }
 }

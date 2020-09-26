@@ -112,36 +112,49 @@ a {
   height: 100%;
 }
 
+.display {
+  display: block;
+  padding: 1em;
+  text-align: right;
+}
+
+.log {
+  @include themify($themes) {
+    color: themed('primary');
+  }
+  font-size: 25px;
+  line-height: 1em;
+  min-height: 30px;
+  display: block;
+}
+
 .total {
   @include themify($themes) {
     color: themed('primary');
   }
-  text-align: right;
   display: block;
-  margin: .3em;
-  padding: .3em 0;
   font-size: 55px;
   line-height: 1em;
 }
 
 .function {
   @include themify($themes) {
-    color: themed('secondary');  
-    background: themed('primary');  
+    color: themed('secondary');
+    background: themed('primary');
   }
 }
 
 .number {
   @include themify($themes) {
-    color: themed('primary');  
-    background: themed('tertiary');  
+    color: themed('primary');
+    background: themed('tertiary');
   }
 }
 
 .operator {
   @include themify($themes) {
-    color: themed('primary');  
-    background: themed('highlight');  
+    color: themed('primary');
+    background: themed('highlight');
   }
 }
 
